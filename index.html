@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: monospace;
+        font-size: 1rem;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      button {
+        background-color: #333;
+        border: none;
+        width: 10rem;
+        height: 5rem;
+        color: white;
+      }
+
+      button:hover {
+        background-color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Fullscreen with JavaScript</h2>
+      <p>Click on the button to open the video in fullscreen mode.</p>
+      <button onclick="openFullscreen();">Fullscreen Mode</button>
+      <p><strong>Tip:</strong> Press the "Esc" key to exit full screen.</p>
+      <video width="100%" autoplay muted>
+        <source
+          src="https://dl8.webmfiles.org/big-buck-bunny_trailer.webm"
+          type="video/webm"
+        />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <script>
+      function openFullscreen() {
+        const element = document.querySelector('video');
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+          /* Safari */
+          element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+          /* IE11 */
+          element.msRequestFullscreen();
+        }
+      }
+    </script>
+  </body>
+</html>
